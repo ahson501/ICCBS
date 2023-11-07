@@ -21,10 +21,14 @@ PROJECT_DIR = os.path.join(BASE_DIR, "AI_ICCBS_website")
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t&=ph4ggr+&h8h7!q@ax_@_77gftdbe9^k)spaxfbfw&)pu9m^'
+# SECRET_KEY = 'django-insecure-t&=ph4ggr+&h8h7!q@ax_@_77gftdbe9^k)spaxfbfw&)pu9m^' //original one
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#nb5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False  //original one
+
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['', '172.16.2.38', '111.68.111.219']
 
