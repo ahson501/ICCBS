@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Tickets{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div class="header">
+    <strong><a class="logo">ICCBS IT-HELPDESK TICKETS</a></strong>
+    <div class="header-right">
+      <a href="{% url 'ICCBSITticketstatus:ICCBSITticketstatus' as ICCBSITticketstatus_url %}" class=sel></a>
+      <a href="/admin/" class=sel>ADMINISTRATOR LOGIN</a>
+    </div>
+  </div>
+   <div id="body">
+    <style>.header {
+        overflow: hidden;
+        background-color: #66aaf8;
+        padding: 20px 10px;
+        min-width: 200px;
+        box-shadow: 0 0 20px rgba(255, 2, 2, 0.15);
+      }
+      
+      .styled-table thead tr {
+      background-color: #f87979;
+      color: #ffffff;
+      text-align: left;
+  }
+  
+      </style>
+      
+   {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

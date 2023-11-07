@@ -1,0 +1,7 @@
+Django==4.2.7
+psycopg2==2.9.9
+bleach==4.1.0
+django-ckeditor-5==0.2.10
+pillow==9.3.0 
+django-bona-blog==1.1.4
+

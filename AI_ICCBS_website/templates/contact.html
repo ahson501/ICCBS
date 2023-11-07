@@ -1,0 +1,67 @@
+{% extends 'base.html'%}
+
+{% block title %}Contact{% endblock %}
+{% block content %}
+<section class="page-section" id="contact">
+    <div class="container">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondry mb-0">Contact Us</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-envelope"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+             <div class="text-center text-secondry mb-0">
+                <p>
+                    We do Our best...
+                </p>
+                <p>
+                    if u need help
+                </p>
+                <p>
+                    email us <a href="mailto:ahsan.latif@iccs.edu">ahsan.latif@iccs.edu</a>
+                </p>
+             </div>
+        <!-- Contact Section Form-->
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+
+                {% if success %}
+                <div class="alert alert-success" role="alert">
+                    Your message received, check ur email for the confirmation !
+                </div>
+                {% endif %}
+
+                <!-- To Configure the email address, go to mail/contact_me.php and update the email address in the PHP file-->
+                <form id="contactForm" name="sentMessage" novalidate="novalidate" method="post">
+                    {% csrf_token %}
+                    
+                    {% if form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{form.non_field_errors}}
+                    </div>
+                    {% endif %}
+                    
+                    {% for field in form %}
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% for error in field.errors %}
+                            <p class="help-block text-danger">{{error}}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <br />
+                    <div class="form-group"><button class="btn ai-bg-primary btn-xl text-white" id="sendMessageButton" type="submit">Send</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+
+{% block title %}Profile{% endblock %}
+
+{% block head %}
+<link href="{% url 'css/profile.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+{% with profile=user.profile %}
+
+<div class="profile-page">
+    <div class="page-header header-filter"></div>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col ml-6 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="avatar">
+                                <div class="box-1-1">
+                                    <div class="profile-img-container img-raised img-fluid rounded-circle">
+                                       <img src="http://tinygraphs.com/labs/isogrids/hexa/{{user.username}}?theme=seascape&numcolors=4">
+                                       <div class="body">
+                                        <p class="body-text"> NVIDIA RTX 5000 GPU based server machines| we made it..</p>
+                                        <a href="http://172.16.2.35:8080/guacamole/#/"
+                                           class="btn btn-danger">Train Tensorflow Models!</a>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="name">
+                    <h3 class="title">{{ user.get_full_name }} (@{{user.username}})</h3>
+                    {% if profile %}
+                    <h6>{{ profile.persona|default:""}}</h6>
+                    {% if profile.linkedin_url %}
+                    <a href="{{ profile.linkedin_url }}" class="btn btn-just-icon btn-link"><i class="fab fa-linkedin-in"></i></a>
+                    {% endif %}
+                    {% if profile.twitter_url %}
+                    <a href="{{ profile.twitter_url }}" class="btn btn-just-icon btn-link"><i class="fab fa-twitter-in"></i></a>
+                    {% endif %}
+                    {% if profile.youtube_url %}
+                    <a href="{{ profile.youtube_url }}" class="btn btn-just-icon btn-link"><i class="fab fa-youtube-in"></i></a>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+   {% endwith %}     
+   {% endblock %}
