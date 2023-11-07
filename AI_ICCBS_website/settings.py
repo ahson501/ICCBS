@@ -24,7 +24,7 @@ PROJECT_DIR = os.path.join(BASE_DIR, "AI_ICCBS_website")
 SECRET_KEY = 'django-insecure-t&=ph4ggr+&h8h7!q@ax_@_77gftdbe9^k)spaxfbfw&)pu9m^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['', '172.16.2.38', '111.68.111.219']
 
